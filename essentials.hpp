@@ -84,13 +84,4 @@ void log_component(std::string msg, std::string component){
 	);
 }
 
-
-/**
- * @brief Makes a thread in a non-static component.
-*/
-template<typename _Callable>
-static std::thread thread_make(_Callable function){
-	std::thread(function);
-}
-
 # endif

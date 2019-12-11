@@ -12,11 +12,11 @@ protected:
 	// We need a uint8_t*, 
 	// because we need to reset the memory.
 	amem_t mem = nullptr;
-	uint16_t stack[25] = {0x0200};
+	uint16_t stack[STK_ARR_SIZ] = {0x0200};
 	uint8_t stack_no = 0;
 	uint16_t add_register = 0;
-	uint8_t cpu_register[16] = {0};
-	bool display[64][32] = {0};  // We'll format this later.
+	uint8_t cpu_register[REG_SIZ] = {0};
+	bool display[DISP_Y][DISP_Y] = {0};  // We'll format this later.
 
 	// --- Body
 private:
@@ -124,10 +124,11 @@ public:
 
 		// --- Registers ---
 		// -- Address register --
-		// - Start: 4096 -
-		// - Until: 4097 -
-		// - Length: 2 -
-		// - Fromat: 1 * 2 bytes -
+		// - Replacing items in state -
+		// Start: 4096
+		// Until: 4097
+		// Length: 2
+		// Fromat: 1 * 2 bytes
 		state[root_it] = add_register;
 		state[root_it++] = (add_register >> 8);
 
@@ -167,10 +168,11 @@ public:
 		// - Until: 4419 -
 		// - Length: 50 -
 		// - Format: 25 * 2 bytes -
-		for (uint16_t it = 0; it < STK_SIZ; it++){
+		for (uint16_t it = 0; it < STK_ARR_SIZ; it++){
 			state[root_it + (it * 2)] = stack[it];
 			state[root_it + (it * 2)] = (stack[it] >> 8);
 		}
+		root_it += STK_SIZ;
 		
 		// --- Stack Iterator ---
 		// -- Replacing items in state --
@@ -178,7 +180,7 @@ public:
 		// - Until: 4420 -
 		// - Length: 1 -
 		// - Format: 1 byte integer -
-		state[4420] = stack_no;
+		state[root_it] = stack_no;
 
 		return state;
 	}

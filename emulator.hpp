@@ -239,6 +239,8 @@ public:
 		stack[0] = pc;
 	}
 
+	ChipEightIntrepreter();
+
 	~ChipEightIntrepreter();
 };
 

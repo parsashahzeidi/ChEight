@@ -1,0 +1,17 @@
+{
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "g++ build active file",
+			"command": "/bin/bash",
+			"args": [
+				"-c",
+				"/usr/bin/g++-9 \"/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/UI/main.cpp\" -O0 -Wpedantic -Werror -std=c++17 -m64 -pthread $(wx-config --libs --cppflags) -o \"/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/BIN/main.a\" && ld \"/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/BIN/main.a\" -o \"/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/BIN/main\""
+			],
+			"options": {
+				"cwd": "/bin/"
+			}
+		}
+	],
+	"version": "2.0.0"
+}

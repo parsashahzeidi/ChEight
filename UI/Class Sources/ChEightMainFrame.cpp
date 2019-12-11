@@ -48,7 +48,7 @@ DEFINE_EVENT(ChEightMainFrame::on_f_preferences){
 
 
 ChEightMainFrame::ChEightMainFrame(): 
-    wxFrame(nullptr, wxID_ANY, "ChEight - Idle.") {
+    wxFrame(nullptr, wxID_ANY, "ChEight - Idle."){
     // --- Menu Bar ---
     // -- Head --
     menu_bar = new wxMenuBar;

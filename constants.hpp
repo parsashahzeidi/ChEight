@@ -7,6 +7,8 @@
 // -- Memory sizes --
 // ChEight's Memory size
 # define MEM_SIZ 4096
+
+// -- Registers
 // ChEight's Address register's size
 # define ADD_REG_SIZ 2
 // ChEight's CPU Register array size
@@ -18,15 +20,20 @@
 // ChEight's Display size's y axis
 # define DISP_Y 32
 // ChEight's Display size
-# define DISP_SIZ ((DISP_Y * DISP_X) / 8)
+# define DISP_SIZ ((DISP_Y * DISP_X) >> 3)
+// (n >> 3) == (n / 8)
 
+// -- Stack
 // ChEight's Stack size
-# define STK_SIZ 25
+# define STK_ARR_SIZ 25
+// ChEight's stack size in bits
+# define STK_SIZ (STK_ARR_SIZ << 1)
+// (n << 1) == (n * 2)
 // ChEight's Stack Iterator size
 # define STK_IT_SIZ 1
 
 // ChEight's Save state size
-# define FILE_STATE_SiZ (MEM_SIZ + ADD_REG_SIZ + STK_SIZ + REG_SIZ + DISP_SIZ + STK_SIZ + STK_IT_SIZ)
+# define FILE_STATE_SIZ (MEM_SIZ + ADD_REG_SIZ + REG_SIZ + DISP_SIZ + STK_SIZ + STK_IT_SIZ)
 
 // -- Types --
 // ChEight's Memory type

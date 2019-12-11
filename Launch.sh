@@ -1,2 +1,3 @@
 #! /bin/bash
-./main
+./BIN/main
+echo Exiting..
