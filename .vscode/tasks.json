@@ -2,7 +2,7 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "g++ build active file",
+			"label": "g++ build ui",
 			"command": "/bin/bash",
 			"args": [
 				"-c",
@@ -10,6 +10,27 @@
 			],
 			"options": {
 				"cwd": "/bin/"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "g++ build term",
+			"command": "g++-9",
+			"args": [
+				"/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/main.cpp",
+				"-O0", "-Wpedantic", "-Werror", "-std=c++17", "-m64", "-pthread", "-g",
+				"-o", "/home/jamiejacker/Documents/VS code/CHEIGHT/ChEight/BIN/main"
+			],
+			"options": {
+				"cwd": "/bin/"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
 			}
 		}
 	],
